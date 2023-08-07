@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+.itz {
+  position: fixed;
+  border-radius: 50%;
+  height: 90px;
+  animation: disOpacity 1s;
+}
+
+#btn {
+  all: unset;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+#btn:hover {
+  transform: scale(0.8);
+}
+
+#btn img {
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+#btn:hover img {
+  opacity: 1;
+}
+
+#btn .ball {
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  animation: rotate infinite 1.6s linear;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#btn:hover .ball {
+  opacity: 1;
+}
+
+#btn .ball::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #ffff01;
+  border-radius: 50%;
+}
+
+#btn .title {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  border: 1px solid #ffff01;
+  padding: 7px;
+  border-radius: 10px;
+  color: #ffff01;
+  opacity: 0.8;
+  z-index: 999;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disOpacity {
+  0% {
+    opacity: 1;
+    transform: translatey(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translatey(40px);
+  }
+}
